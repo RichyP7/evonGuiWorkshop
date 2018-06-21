@@ -9,6 +9,10 @@ namespace evonGuiWorkshop.Model
 {
     public class Order : ViewModelBase
     {
+        #region Data
+        private string _OrderNo;
+        private string _OrderName;
+        #endregion
         #region Constructor
 
         public Order()
@@ -18,7 +22,7 @@ namespace evonGuiWorkshop.Model
 
         #region Properties
 
-        private string _OrderNo;
+
 
         public string OrderNo
         {
@@ -67,6 +71,8 @@ namespace evonGuiWorkshop.Model
                 Set(ref _DeliveryDate, value);
             }
         }
+
+        public string OrderName { get => _OrderName; set => Set(ref _OrderName, value); }
 
         #endregion
     }

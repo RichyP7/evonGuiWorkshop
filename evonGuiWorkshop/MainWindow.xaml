@@ -16,15 +16,29 @@
         <Button Grid.Row="0" Content="Load Orders..." Command="{Binding LoadCommand}">
             
         </Button>
-        <ListView Grid.Row="1"  ItemsSource="{Binding MyOrders ,Mode=OneWay}" HorizontalAlignment="Left" IsSynchronizedWithCurrentItem="True" Height="100" VerticalAlignment="Top" Width="Auto" MinWidth="200">
-
-            <ListView.View>
+        <ListView Grid.Row="1"  ItemsSource="{Binding MyOrders ,Mode=OneWay}" HorizontalAlignment="Stretch" IsSynchronizedWithCurrentItem="True" Height="100" VerticalAlignment="Top" Width="Auto" MinWidth="200">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding OrderNo}" Height="32" />
+                        <TextBlock Grid.Column="1" Text="{Binding OrderDate}" Height="32" />
+                        <TextBlock Grid.Column="2" Text="{Binding OrderName}" Height="32" />
+                    </Grid>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.View>
                 <GridView>
 
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding OrderNo}" />
+                    <GridViewColumn Width="120" Header="Order " DisplayMemberBinding="{Binding OrderNo}" />
 
                 </GridView>
-            </ListView.View>
+            </ListView.View>-->
 
         </ListView>
 

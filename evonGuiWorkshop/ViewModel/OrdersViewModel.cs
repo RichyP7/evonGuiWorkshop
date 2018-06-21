@@ -21,18 +21,23 @@ namespace evonGuiWorkshop.ViewModel
         public OrdersViewModel()
         {
             MyOrders = new ObservableCollection<Order>();
-            //myOrders = new ObservableCollection<Order>();
-
-            //OrderView = CollectionViewSource.GetDefaultView(myOrders) as ListCollectionView;
-
-            //OrderView.CurrentChanged += (s, e) =>
-
-            //{
-
-            //    RaisePropertyChanged(() => Orders);
-
-            //};
         }
+
+        public bool CanExecute()
+        {
+            return true;
+        }
+        private RelayCommand _LoadCommand;
+        public RelayCommand LoadCommand
+        {
+            get
+            {
+                if (_LoadCommand == null)
+                    _LoadCommand = new RelayCommand(LoadOrders, CanExecute);
+                return _LoadCommand;
+            }
+        }
+
 
         public ICollectionView OrderView { get; }
 
@@ -50,28 +55,12 @@ namespace evonGuiWorkshop.ViewModel
             }
         }
 
-        public RelayCommand LoadCommand
-        {
-            get
-            {
-                if (_LoadCommand == null)
-                    _LoadCommand = new RelayCommand(LoadOrders, CanExecute);
-                return _LoadCommand;
-            }
-        }
 
         public void LoadOrders()
         {
 
-            var x = new Order { OrderNo = "100051", OrderDate = DateTime.MinValue.AddMilliseconds(2000392) };
-
+            var x = new Order { OrderNo = "100051",OrderName= "My Amazon", OrderDate = DateTime.MinValue.AddMilliseconds(2000392) };
             MyOrders.Add(x);
         }
-        public bool CanExecute()
-        {
-            return true;
-        }
-        private RelayCommand _LoadCommand;
-
     }
 }
