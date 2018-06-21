@@ -5,11 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:evonGuiWorkshop"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800">
-    <!--DataContext="{Binding Main, Source={StaticResource Locator}}-->
- 
-       
-    <Grid>
-        
+        Title="{Binding Title}" Height="450" Width="800"
+    DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <Grid DataContext="{Binding Orders, Source={StaticResource Locator}}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="Load Orders..." Command="{Binding LoadCommand}">
+            
+        </Button>
+        <ListView Grid.Row="1"  ItemsSource="{Binding MyOrders ,Mode=OneWay}" HorizontalAlignment="Left" IsSynchronizedWithCurrentItem="True" Height="100" VerticalAlignment="Top" Width="Auto" MinWidth="200">
+
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding OrderNo}" />
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
+
+
     </Grid>
 </Window>

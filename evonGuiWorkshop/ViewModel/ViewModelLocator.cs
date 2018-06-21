@@ -37,13 +37,9 @@ namespace evonGuiWorkshop.ViewModel
             ////    // Create design time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
             ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<OrdersViewModel>();
         }
 
         public MainViewModel Main
@@ -53,7 +49,14 @@ namespace evonGuiWorkshop.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+        public OrdersViewModel Orders
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<OrdersViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
