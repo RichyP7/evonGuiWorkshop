@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evonGuiWorkshop", "evonGuiWorkshop\evonGuiWorkshop.csproj", "{4541C618-D06B-4F71-A093-21E4A964C101}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evonGuiLib", "evonGuiLib\evonGuiLib.csproj", "{821D4EA7-9E51-404D-BB75-64F0981D4379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4541C618-D06B-4F71-A093-21E4A964C101}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4541C618-D06B-4F71-A093-21E4A964C101}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4541C618-D06B-4F71-A093-21E4A964C101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821D4EA7-9E51-404D-BB75-64F0981D4379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821D4EA7-9E51-404D-BB75-64F0981D4379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821D4EA7-9E51-404D-BB75-64F0981D4379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821D4EA7-9E51-404D-BB75-64F0981D4379}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,44 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:evonGuiWorkshop"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800"
-    DataContext="{Binding Main, Source={StaticResource Locator}}">
-    <Grid DataContext="{Binding Orders, Source={StaticResource Locator}}" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
+        Title="{Binding Title}" Height="Auto" Width="Auto"
+>
+    <Window.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:evonGuiLib.ViewModel;assembly=evonGuiLib"></vm:ViewModelLocator>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid  DataContext="{Binding Orders, Source={StaticResource Locator}}" >
+        <OrderView xmlns="clr-namespace:evonGuiLib.View;assembly=evonGuiLib">
 
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="Load Orders..." Command="{Binding LoadCommand}">
-            
-        </Button>
-        <ListView Grid.Row="1"  ItemsSource="{Binding MyOrders ,Mode=OneWay}" HorizontalAlignment="Stretch" IsSynchronizedWithCurrentItem="True" Height="100" VerticalAlignment="Top" Width="Auto" MinWidth="200">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding OrderNo}" Height="32" />
-                        <TextBlock Grid.Column="1" Text="{Binding OrderDate}" Height="32" />
-                        <TextBlock Grid.Column="2" Text="{Binding OrderName}" Height="32" />
-                    </Grid>
-                    
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <!--<ListView.View>
-                <GridView>
-
-                    <GridViewColumn Width="120" Header="Order " DisplayMemberBinding="{Binding OrderNo}" />
-
-                </GridView>
-            </ListView.View>-->
-
-        </ListView>
-
-
-
+        </OrderView>
     </Grid>
+
 </Window>

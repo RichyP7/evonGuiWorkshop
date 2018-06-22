@@ -17,7 +17,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 //using Microsoft.Practices.ServiceLocation;
 
-namespace evonGuiWorkshop.ViewModel
+namespace evonGuiLib.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the
@@ -40,14 +40,6 @@ namespace evonGuiWorkshop.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<OrdersViewModel>();
-        }
-
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
         }
         public OrdersViewModel Orders
         {

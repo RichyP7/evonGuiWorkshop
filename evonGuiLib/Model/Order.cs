@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace evonGuiWorkshop.Model
+namespace evonGuiLib.Model
 {
     public class Order : ViewModelBase
     {

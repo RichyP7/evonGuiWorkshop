@@ -1,4 +1,5 @@
-﻿using evonGuiWorkshop.Model;
+﻿
+using evonGuiLib.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -8,9 +9,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 
-namespace evonGuiWorkshop.ViewModel
+namespace evonGuiLib.ViewModel
 {
     public class OrdersViewModel :ViewModelBase
     {
@@ -58,7 +60,7 @@ namespace evonGuiWorkshop.ViewModel
 
         public void LoadOrders()
         {
-
+            MessageBox.Show("test");
             var x = new Order { OrderNo = "100051",OrderName= "My Amazon", OrderDate = DateTime.MinValue.AddMilliseconds(2000392) };
             MyOrders.Add(x);
         }

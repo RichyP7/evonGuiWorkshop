@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="evonGuiLib.View.OrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:evonGuiLib.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="800">
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="Load Orders..." Command="{Binding LoadCommand}">
+
+        </Button>
+        <ListView Grid.Row="1"  ItemsSource="{Binding MyOrders ,Mode=OneWay}" HorizontalAlignment="Stretch" IsSynchronizedWithCurrentItem="True" MinHeight="1000" VerticalAlignment="Top" Width="Auto" MinWidth="200">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding OrderNo}" Height="50" FontSize="20" />
+                        <TextBlock Grid.Column="1" Text="{Binding OrderDate}" Height="50"  FontSize="20"/>
+                        <TextBlock Grid.Column="3" Text="{Binding OrderName}" Height="50" FontSize="20" />
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.View>
+                <GridView>
+
+                    <GridViewColumn Width="120" Header="Order " DisplayMemberBinding="{Binding OrderNo}" />
+
+                </GridView>
+            </ListView.View>-->
+
+        </ListView>
+
+
+
+    </Grid>
+</UserControl>
