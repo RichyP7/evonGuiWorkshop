@@ -13,6 +13,8 @@
 */
 
 using CommonServiceLocator;
+using DAL.DB;
+using DAL.DB.Common.Repositories;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 //using Microsoft.Practices.ServiceLocation;
@@ -37,8 +39,9 @@ namespace evonGuiWorkshop.ViewModel
             ////    // Create design time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
             ////}
-
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<IGenericRepository<DimProduct>>(
+                () => new GenericRepository<DimProduct>(new AdventureWorksModel()));
             SimpleIoc.Default.Register<OrdersViewModel>();
         }
 

@@ -23,6 +23,12 @@ namespace evonGuiWorkshop
         public MainWindow()
         {
             InitializeComponent();
+            base.Unloaded += MainWindow_Unloaded;
+        }
+
+        private void MainWindow_Unloaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ViewModelLocator.Cleanup();
         }
     }
 }

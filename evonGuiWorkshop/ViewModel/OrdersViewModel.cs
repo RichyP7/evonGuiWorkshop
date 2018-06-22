@@ -1,4 +1,6 @@
-﻿using evonGuiWorkshop.Model;
+﻿using DAL.DB;
+using DAL.DB.Common.Repositories;
+using evonGuiWorkshop.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -16,11 +18,13 @@ namespace evonGuiWorkshop.ViewModel
     {
         #region Data
         private ObservableCollection<Order> myOrders;
+        IGenericRepository<DimProduct> _ProductRepo;
         #endregion
 
-        public OrdersViewModel()
+        public OrdersViewModel(IGenericRepository<DimProduct> repo)
         {
             MyOrders = new ObservableCollection<Order>();
+            _ProductRepo = repo;
         }
 
         public bool CanExecute()
@@ -59,8 +63,13 @@ namespace evonGuiWorkshop.ViewModel
         public void LoadOrders()
         {
 
-            var x = new Order { OrderNo = "100051",OrderName= "My Amazon", OrderDate = DateTime.MinValue.AddMilliseconds(2000392) };
-            MyOrders.Add(x);
+            var myProduct = _ProductRepo.GetByID(20);// new Order { OrderNo = "100051",OrderName= "My Amazon", OrderDate = DateTime.MinValue.AddMilliseconds(2000392) };
+            MyOrders.Add(GetOrderOfProduct(myProduct));
+        }
+
+        private static Order GetOrderOfProduct(DimProduct x)
+        {
+            return new Order() { OrderDate = x.StartDate ?? DateTime.MinValue, OrderName = x.EnglishProductName, OrderNo = x.ProductKey.ToString() };
         }
     }
 }
