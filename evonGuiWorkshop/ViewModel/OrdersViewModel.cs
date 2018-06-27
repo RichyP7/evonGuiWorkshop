@@ -37,7 +37,21 @@ namespace evonGuiWorkshop.ViewModel
                 return _LoadCommand;
             }
         }
+        private RelayCommand _SendMessageCommand;
+        public RelayCommand SendMessageCommand
+        {
+            get
+            {
+                if (_SendMessageCommand == null)
+                    _SendMessageCommand = new RelayCommand(SendMessage, CanExecute);
+                return _SendMessageCommand;
+            }
+        }
 
+        private void SendMessage()
+        {
+            MessengerInstance.Send<string>("Hello GuiWorkShop","gui");
+        }
 
         public ICollectionView OrderView { get; }
 

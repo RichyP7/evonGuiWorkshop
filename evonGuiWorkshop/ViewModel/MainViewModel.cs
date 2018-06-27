@@ -1,3 +1,5 @@
+using System;
+using System.Windows;
 using GalaSoft.MvvmLight;
 
 namespace evonGuiWorkshop.ViewModel
@@ -30,7 +32,14 @@ namespace evonGuiWorkshop.ViewModel
             {
                 Title = "Hello World";
             }
+            MessengerInstance.Register<string>(this,"gui", SearchViewModelChanged);
         }
+
+        private void SearchViewModelChanged(string obj)
+        {
+            MessageBox.Show(obj.ToString());
+        }
+
         public string Title { get; set; }
     }
 }

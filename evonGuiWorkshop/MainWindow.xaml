@@ -1,22 +1,27 @@
-﻿<Window x:Class="evonGuiWorkshop.MainWindow"
+﻿<mahapps:MetroWindow x:Class="evonGuiWorkshop.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:evonGuiWorkshop"
+        xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="450" Width="800"
     DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid DataContext="{Binding Orders, Source={StaticResource Locator}}" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="Load Orders..." Command="{Binding LoadCommand}">
+        <Button Grid.Row="0" Width="50" Content="Hello" Command="{Binding LoadCommand}" Style="{StaticResource MetroCircleButtonStyle}" Foreground="Black">
             
         </Button>
-        <ListView Grid.Row="1"  ItemsSource="{Binding MyOrders ,Mode=OneWay}" HorizontalAlignment="Stretch" IsSynchronizedWithCurrentItem="True" Height="100" VerticalAlignment="Top" Width="Auto" MinWidth="200">
+        <Button Grid.Row="1" Width="50" Content="send" Command="{Binding SendMessageCommand}" Style="{StaticResource MetroCircleButtonStyle}" Foreground="Black">
+
+        </Button>
+        <ListView Grid.Row="2"  ItemsSource="{Binding MyOrders ,Mode=OneWay}" HorizontalAlignment="Stretch" IsSynchronizedWithCurrentItem="True" Height="100" VerticalAlignment="Top" Width="Auto" MinWidth="200">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -45,4 +50,4 @@
 
 
     </Grid>
-</Window>
+</mahapps:MetroWindow>
